@@ -8,12 +8,16 @@
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isEdit) {
-      todoList.updateTask($editInputValue, $editId);
-      editInputValue.update(() => '');
-      editId.update(() => '');
+      if ($editInputValue) {
+        todoList.updateTask($editInputValue, $editId);
+        editInputValue.update(() => '');
+        editId.update(() => '');
+      }
     } else {
-      todoList.addTodo($addInputValue);
-      addInputValue.update(() => '');
+      if ($addInputValue) {
+        todoList.addTodo($addInputValue);
+        addInputValue.update(() => '');
+      }
     }
   };
 </script>

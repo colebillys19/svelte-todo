@@ -2,9 +2,9 @@
 	import { fade } from 'svelte/transition';
 
 	import store from '../store';
+	import EditDialog from '../components/EditDialog/EditDialog.svelte';
 	import TodoForm from '../components/TodoForm/TodoForm.svelte';
 	import TodoTable from '../components/TodoTable/TodoTable.svelte';
-	// import Temp from '../components/Temp/Temp.svelte';
 
 	const { editId, todoList } = store;
   const todos = todoList.getTodos();
@@ -18,10 +18,9 @@
 	{/if}
 	{#if $editId}
 		<div in:fade>
-			<TodoForm isEdit />
+			<EditDialog />
 		</div>
 	{/if}
-	<!-- <Temp /> -->
 </main>
 
 <style src="./App.css" scoped></style>

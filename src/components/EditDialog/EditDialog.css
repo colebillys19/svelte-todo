@@ -1,0 +1,18 @@
+dialog {
+  border-radius: 10px;
+  border: 0;
+  padding: 54px 30px;
+  position: relative;
+}
+
+.dialogContainer {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  height: 100%;
+  left: 0;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
