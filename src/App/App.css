@@ -1,37 +1,25 @@
 * {
-  color: #1f0322;
+  color: rgb(51, 51, 51);
   font-family: "Nunito", sans-serif;
 }
 
 h1 {
   font-size: 42px;
-  letter-spacing: 2px;
   text-align: center;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 main {
   background-color: white;
+  border-left: 12px solid rgb(255, 64, 0);
+  border-right: 12px solid rgb(255, 64, 0);
   height: 100vh;
   margin: 0 auto;
-  width: 75%;
+  padding: 24px 0 48px;
+  width: 1024px;
 }
 
 span[slot="icon"] {
   display: flex;
 }
-
-/*
-
-  ff4000
-  731dd8
-  1f0322
-
-  ffa58a
-  bc98ec
-  908090
-
-  e9e5e8
-
-  fdfffc
-
-*/

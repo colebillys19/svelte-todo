@@ -1,25 +1,25 @@
 <script lang="ts">
-  import store from '../../store';
-  import TableRow from './TableRow/TableRow.svelte';
+  import store from "../../store";
+  import TableRow from "./TableRow/TableRow.svelte";
 
   const { todoList } = store;
   const todos = todoList.getTodos();
 </script>
 
-<table>
+<table cellspacing="0">
   <thead>
     <tr>
-      <td></td>
-      <td>task</td>
-      <td>status</td>
-      <td></td>
+      <th />
+      <th>task</th>
+      <th>status</th>
+      <th />
     </tr>
   </thead>
   <tbody>
     {#each $todos as todo (todo.id)}
-      <TableRow todo={todo} />
+      <TableRow {todo} />
     {/each}
   </tbody>
 </table>
 
-<style src="./TodoTable.css" scoped></style>
+<style src="./TodoTable.css"></style>

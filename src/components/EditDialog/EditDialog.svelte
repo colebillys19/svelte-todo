@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
   import store from "../../store";
-  import PenIcon from "../../assets/pen.svelte";
+  import PenIcon from "../Icons/PenIcon.svelte";
   import TodoForm from "../TodoForm/TodoForm.svelte";
 
   const { editId } = store;

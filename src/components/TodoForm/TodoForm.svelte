@@ -1,4 +1,5 @@
 <script lang="ts">
+  import IconButton from "../IconButton/IconButton.svelte";
   // export let icon = {};
   // export let iconSrc = "";
 </script>
@@ -8,9 +9,9 @@
   <label for="todo">label</label>
   <div>
     <input id="todo" type="text" />
-    <button>
+    <IconButton>
       <slot name="icon" />
-    </button>
+    </IconButton>
   </div>
 </form>
 <!-- </div> -->
