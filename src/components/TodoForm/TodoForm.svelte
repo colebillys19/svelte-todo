@@ -1,4 +1,22 @@
 <script lang="ts">
+  // export let icon = {};
+  // export let iconSrc = "";
+</script>
+
+<!-- <div> -->
+<form>
+  <label for="todo">label</label>
+  <div>
+    <input id="todo" type="text" />
+    <button>
+      <slot name="icon" />
+    </button>
+  </div>
+</form>
+<!-- </div> -->
+
+<!--
+<script lang="ts">
   import store from '../../store';
   
   const { addInputValue, editId, editInputValue, todoList } = store;
@@ -36,4 +54,5 @@
   </div>
 </form>
 
+-->
 <style src="./TodoForm.css" scoped></style>

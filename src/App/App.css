@@ -1,3 +1,37 @@
-main {
-  background-color: lavender;
+* {
+  color: #1f0322;
+  font-family: "Nunito", sans-serif;
 }
+
+h1 {
+  font-size: 42px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+main {
+  background-color: white;
+  height: 100vh;
+  margin: 0 auto;
+  width: 75%;
+}
+
+span[slot="icon"] {
+  display: flex;
+}
+
+/*
+
+  ff4000
+  731dd8
+  1f0322
+
+  ffa58a
+  bc98ec
+  908090
+
+  e9e5e8
+
+  fdfffc
+
+*/

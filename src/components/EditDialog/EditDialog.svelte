@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
   import store from "../../store";
+  import PenIcon from "../../assets/pen.svelte";
   import TodoForm from "../TodoForm/TodoForm.svelte";
 
   const { editId } = store;
@@ -25,7 +26,11 @@
 <div on:click={closeDialog} class="dialogContainer">
   <dialog on:click|stopPropagation={() => null} open>
     <button on:click={closeDialog}>close</button>
-    <TodoForm isEdit />
+    <TodoForm>
+      <span slot="icon">
+        <PenIcon />
+      </span>
+    </TodoForm>
   </dialog>
 </div>
 
