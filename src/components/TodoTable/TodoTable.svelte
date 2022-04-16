@@ -1,11 +1,9 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import store from '../../store';
+  import TableRow from './TableRow/TableRow.svelte';
 
-  import type Todo from '../../types/Todo';
-
-  export let todos: Array<Todo> = [];
-  
-  const dispatch = createEventDispatcher();
+  const { todoList } = store;
+  const todos = todoList.getTodos();
 </script>
 
 <table>
@@ -18,21 +16,8 @@
     </tr>
   </thead>
   <tbody>
-    {#each todos as todo (todo.id)}
-      <tr>
-        <td>
-          <button on:click={() => dispatch('edit-click', todo.id)}>
-            edit
-          </button>
-        </td>
-        <td>{todo.task}</td>
-        <td>{todo.isDone ? "done" : "todo"}</td>
-        <td>
-          <button on:click={() => dispatch('delete-click', todo.id)}>
-            delete
-          </button>
-        </td>
-      </tr>
+    {#each $todos as todo (todo.id)}
+      <TableRow todo={todo} />
     {/each}
   </tbody>
 </table>

@@ -1,44 +1,47 @@
-export const temp: string = "temp";
+import { writable } from "svelte/store";
 
-// import { getId } from "../helpers";
-// import Todo from "../types/Todo";
+import { getId } from "../helpers";
 
-// class TodoList {
-//   public todos: Array<Todo> = [];
+class TodoList {
+  public todos = writable([]);
 
-//   addTodo(task: string): void {
-//     const id: string = getId();
-//     const newTodo = { id, isDone: false, task };
-//     this.todos.push(newTodo);
-//   }
+  addTodo(task) {
+    const id = getId();
+    const newTodo = { id, isDone: false, task };
+    this.todos.update((todos) => [...todos, newTodo]);
+  }
 
-//   deleteTodo(targetId: string): void {
-//     this.todos = this.todos.filter(({ id }: { id: string }) => id !== targetId);
-//   }
+  deleteTodo(targetId) {
+    this.todos.update((todos) => todos.filter(({ id }) => id !== targetId));
+  }
 
-//   getTodos(): Array<Todo> {
-//     return this.todos;
-//   }
+  getTodos() {
+    return this.todos;
+  }
 
-//   toggleStatus(targetId: string): void {
-//     this.todos = this.todos.map((todo: Todo) => {
-//       const { id, isDone, task } = todo;
-//       if (id === targetId) {
-//         return { id, isDone: !isDone, task };
-//       }
-//       return todo;
-//     });
-//   }
+  toggleStatus(targetId) {
+    this.todos.update((todos) =>
+      todos.map((todo) => {
+        const { id, isDone, task } = todo;
+        if (id === targetId) {
+          return { id, isDone: !isDone, task };
+        }
+        return todo;
+      })
+    );
+  }
 
-//   updateTask(newTask: string, targetId: string): void {
-//     this.todos = this.todos.map((todo: Todo) => {
-//       const { id, isDone } = todo;
-//       if (id === targetId) {
-//         return { id, isDone, task: newTask };
-//       }
-//       return todo;
-//     });
-//   }
-// }
+  updateTask(newTask, targetId) {
+    this.todos.update((todos) =>
+      todos.map((todo) => {
+        const { id, isDone } = todo;
+        if (id === targetId) {
+          return { id, isDone, task: newTask };
+        }
+        return todo;
+      })
+    );
+  }
+}
 
-// export default TodoList;
+export default TodoList;

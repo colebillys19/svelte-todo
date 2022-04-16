@@ -1,27 +1,33 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
-
-  export let inputValue: string = '';
+  import store from '../../store';
   
-  const dispatch = createEventDispatcher();
+  const { addInputValue, editId, editInputValue, todoList } = store;
 
-  const handleInput = (e) => {
-    dispatch('add-input', e.target.value);
-  };
+  export let isEdit = false;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch('form-submit');
+    if (isEdit) {
+      todoList.updateTask($editInputValue, $editId);
+      editInputValue.update(() => '');
+      editId.update(() => '');
+    } else {
+      todoList.addTodo($addInputValue);
+      addInputValue.update(() => '');
+    }
   };
 </script>
 
 <form>
-  <label for="todo">add todo:</label>
+  <label for="todo">{isEdit ? 'edit' : 'add'} todo:</label>
   <div>
-    <!-- <input bind:value={inputValue} id="todo" type="text"> -->
-    <input on:input={handleInput} id="todo" type="text" value={inputValue}>
+    {#if isEdit}
+      <input bind:value={$editInputValue} id="todo" type="text">
+    {:else}
+      <input bind:value={$addInputValue} id="todo" type="text">
+    {/if}
     <button on:click={handleSubmit}>
-      add
+      {isEdit ? 'update' : 'add'}
     </button>
   </div>
 </form>
