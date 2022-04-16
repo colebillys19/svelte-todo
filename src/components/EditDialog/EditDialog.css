@@ -3,6 +3,25 @@ dialog {
   border: 0;
   padding: 54px 30px;
   position: relative;
+  width: 540px;
+}
+
+.closeButton {
+  align-items: center;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 0;
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+  position: absolute;
+  right: 12px;
+  top: 8px;
+}
+
+.closeButton:hover {
+  background-color: rgba(51, 51, 51, 0.1);
+  cursor: pointer;
 }
 
 .dialogContainer {

@@ -3,3 +3,8 @@ body {
   background-position: center;
   position: relative;
 }
+
+span[slot="icon"] {
+  align-items: center;
+  display: flex;
+}

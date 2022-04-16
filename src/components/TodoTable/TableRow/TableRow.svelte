@@ -4,15 +4,22 @@
   import TrashIcon from "../../Icons/TrashIcon.svelte";
   import IconButton from "../../IconButton/IconButton.svelte";
 
+  const { editId, todoList } = store;
+
   export let todo = { id: "", isDone: false, task: "" };
 
-  const { editId, todoList } = store;
+  const handleSetEditId = () => {
+    editId.update(() => todo.id);
+  };
+
+  const handleDeleteTodo = () => {
+    todoList.deleteTodo(todo.id);
+  };
 </script>
 
 <tr>
   <td>
-    <!-- <button on:click={() => editId.update(() => todo.id)}></button> -->
-    <IconButton>
+    <IconButton on:click={handleSetEditId}>
       <PenIcon />
     </IconButton>
   </td>
@@ -26,8 +33,7 @@
     </button>
   </td>
   <td>
-    <!-- <button on:click={() => todoList.deleteTodo(todo.id)}></button> -->
-    <IconButton>
+    <IconButton on:click={handleDeleteTodo}>
       <TrashIcon />
     </IconButton>
   </td>

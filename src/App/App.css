@@ -19,7 +19,3 @@ main {
   padding: 24px 0 48px;
   width: 1024px;
 }
-
-span[slot="icon"] {
-  display: flex;
-}

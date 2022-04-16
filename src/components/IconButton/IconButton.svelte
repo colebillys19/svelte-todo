@@ -1,7 +1,15 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import { createEventDispatcher } from "svelte";
 
-<button>
+  const dispatch = createEventDispatcher();
+
+  const handleClick = () => {
+    dispatch("click");
+  };
+</script>
+
+<button on:click|preventDefault={handleClick}>
   <slot />
 </button>
 
-<style src="./IconButton.css" scoped></style>
+<style src="./IconButton.css"></style>

@@ -7,13 +7,24 @@
   import TodoForm from "../components/TodoForm/TodoForm.svelte";
   import TodoTable from "../components/TodoTable/TodoTable.svelte";
 
-  const { editId, todoList } = store;
+  const { addInputValue, editId, todoList } = store;
   const todos = todoList.getTodos();
+
+  const handleAddTodo = () => {
+    if ($addInputValue) {
+      todoList.addTodo($addInputValue);
+      addInputValue.update(() => "");
+    }
+  };
 </script>
 
 <main>
   <h1>Svelte Todo</h1>
-  <TodoForm>
+  <TodoForm
+    bind:inputValue={$addInputValue}
+    on:submit={handleAddTodo}
+    labelText="add todo"
+  >
     <span slot="icon">
       <PlusIcon />
     </span>
@@ -22,10 +33,10 @@
     <TodoTable />
   {/if}
   {#if $editId}
-    <div in:fade>
+    <div in:fade={{ duration: 100 }}>
       <EditDialog />
     </div>
   {/if}
 </main>
 
-<style src="./App.css" scoped></style>
+<style src="./App.css"></style>

@@ -1,59 +1,26 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+
   import IconButton from "../IconButton/IconButton.svelte";
-  // export let icon = {};
-  // export let iconSrc = "";
-</script>
 
-<!-- <div> -->
-<form>
-  <label for="todo">label</label>
-  <div>
-    <input id="todo" type="text" />
-    <IconButton>
-      <slot name="icon" />
-    </IconButton>
-  </div>
-</form>
-<!-- </div> -->
+  export let inputValue = "";
+  export let labelText = "";
 
-<!--
-<script lang="ts">
-  import store from '../../store';
-  
-  const { addInputValue, editId, editInputValue, todoList } = store;
+  const dispatch = createEventDispatcher();
 
-  export let isEdit = false;
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (isEdit) {
-      if ($editInputValue) {
-        todoList.updateTask($editInputValue, $editId);
-        editInputValue.update(() => '');
-        editId.update(() => '');
-      }
-    } else {
-      if ($addInputValue) {
-        todoList.addTodo($addInputValue);
-        addInputValue.update(() => '');
-      }
-    }
+  const handleSubmit = () => {
+    dispatch("submit");
   };
 </script>
 
 <form>
-  <label for="todo">{isEdit ? 'edit' : 'add'} todo:</label>
+  <label for="todo">{labelText}</label>
   <div>
-    {#if isEdit}
-      <input bind:value={$editInputValue} id="todo" type="text">
-    {:else}
-      <input bind:value={$addInputValue} id="todo" type="text">
-    {/if}
-    <button on:click={handleSubmit}>
-      {isEdit ? 'update' : 'add'}
-    </button>
+    <input bind:value={inputValue} id="todo" type="text" />
+    <IconButton on:click={handleSubmit}>
+      <slot name="icon" />
+    </IconButton>
   </div>
 </form>
 
--->
-<style src="./TodoForm.css" scoped></style>
+<style src="./TodoForm.css"></style>
