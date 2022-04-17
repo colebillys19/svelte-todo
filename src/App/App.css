@@ -14,8 +14,8 @@ main {
   background-color: white;
   border-left: 12px solid rgb(255, 64, 0);
   border-right: 12px solid rgb(255, 64, 0);
-  height: 100vh;
   margin: 0 auto;
+  min-height: 100vh;
   padding: 24px 0 48px;
   width: 1024px;
 }
