@@ -1,8 +1,9 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
+
   import store from "../../store";
-  import CheckIcon from "../Icons/CheckIcon.svelte";
-  import TimesIcon from "../Icons/TimesIcon.svelte";
+  import CheckIcon from "../../iconComponents/CheckIcon.svelte";
+  import TimesIcon from "../../iconComponents/TimesIcon.svelte";
   import TodoForm from "../TodoForm/TodoForm.svelte";
 
   const { editId, editInputValue, todoList } = store;

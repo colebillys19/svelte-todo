@@ -1,7 +1,7 @@
 <script lang="ts">
   import store from "../../../store";
-  import PenIcon from "../../Icons/PenIcon.svelte";
-  import TrashIcon from "../../Icons/TrashIcon.svelte";
+  import PenIcon from "../../../iconComponents/PenIcon.svelte";
+  import TrashIcon from "../../../iconComponents/TrashIcon.svelte";
   import IconButton from "../../IconButton/IconButton.svelte";
 
   const { editId, todoList } = store;

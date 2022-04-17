@@ -2,7 +2,7 @@
   import { fade } from "svelte/transition";
 
   import store from "../store";
-  import PlusIcon from "../components/Icons/PlusIcon.svelte";
+  import PlusIcon from "../iconComponents/PlusIcon.svelte";
   import EditDialog from "../components/EditDialog/EditDialog.svelte";
   import TodoForm from "../components/TodoForm/TodoForm.svelte";
   import TodoTable from "../components/TodoTable/TodoTable.svelte";
