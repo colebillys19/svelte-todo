@@ -23,6 +23,7 @@
   <TodoForm
     bind:inputValue={$addInputValue}
     on:submit={handleAddTodo}
+    buttonAriaLabel="add todo"
     labelText="add todo"
   >
     <span slot="icon">

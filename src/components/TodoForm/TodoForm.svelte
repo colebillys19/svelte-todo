@@ -5,6 +5,7 @@
 
   const dispatch = createEventDispatcher();
 
+  export let buttonAriaLabel = "";
   export let inputValue = "";
   export let labelText = "";
 
@@ -28,7 +29,7 @@
       id="todo"
       type="text"
     />
-    <IconButton on:click={handleSubmit}>
+    <IconButton on:click={handleSubmit} ariaLabel={buttonAriaLabel}>
       <slot name="icon" />
     </IconButton>
   </div>

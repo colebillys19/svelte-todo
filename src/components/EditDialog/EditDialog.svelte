@@ -35,13 +35,18 @@
 
 <div on:click={closeDialog} class="dialogContainer">
   <dialog on:click|stopPropagation={() => null} open>
-    <button on:click={closeDialog} class="closeButton">
+    <button
+      on:click={closeDialog}
+      aria-label="close dialog"
+      class="closeButton"
+    >
       <TimesIcon />
     </button>
     <TodoForm
       bind:inputValue={$editInputValue}
       on:submit={handleUpdateTodo}
-      labelText="add todo"
+      buttonAriaLabel="update todo"
+      labelText="edit todo"
     >
       <span slot="icon">
         <CheckIcon />

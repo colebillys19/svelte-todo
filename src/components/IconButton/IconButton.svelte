@@ -3,12 +3,14 @@
 
   const dispatch = createEventDispatcher();
 
+  export let ariaLabel = "";
+
   const handleClick = () => {
     dispatch("click");
   };
 </script>
 
-<button on:click|preventDefault={handleClick}>
+<button on:click|preventDefault={handleClick} aria-label={ariaLabel}>
   <slot />
 </button>
 

@@ -19,7 +19,7 @@
 
 <tr>
   <td>
-    <IconButton on:click={handleSetEditId}>
+    <IconButton on:click={handleSetEditId} ariaLabel="edit todo">
       <PenIcon />
     </IconButton>
   </td>
@@ -27,13 +27,16 @@
   <td>
     <button
       on:click={() => todoList.toggleStatus(todo.id)}
+      aria-label={`toggle todo status, current status: ${
+        todo.isDone ? "done" : "todo"
+      }`}
       class={`statusButton ${todo.isDone ? "lineThroughText" : ""}`}
     >
       {todo.isDone ? "done" : "todo"}
     </button>
   </td>
   <td>
-    <IconButton on:click={handleDeleteTodo}>
+    <IconButton on:click={handleDeleteTodo} ariaLabel="delete todo">
       <TrashIcon />
     </IconButton>
   </td>
