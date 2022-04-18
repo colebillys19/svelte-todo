@@ -16,7 +16,10 @@
     window.removeEventListener("keyup", handleEsc);
   });
 
-  const closeDialog = () => editId.update(() => "");
+  const closeDialog = () => {
+    editId.update(() => "");
+    editInputValue.update(() => "");
+  };
 
   const handleEsc = (e) => {
     if (e.key === "Escape") {

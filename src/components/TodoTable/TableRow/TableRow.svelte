@@ -4,12 +4,13 @@
   import TrashIcon from "../../../iconComponents/TrashIcon.svelte";
   import IconButton from "../../IconButton/IconButton.svelte";
 
-  const { editId, todoList } = store;
+  const { editId, editInputValue, todoList } = store;
 
   export let todo = { id: "", isDone: false, task: "" };
 
   const handleSetEditId = () => {
     editId.update(() => todo.id);
+    editInputValue.update(() => todo.task);
   };
 
   const handleDeleteTodo = () => {
