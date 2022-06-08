@@ -5,13 +5,13 @@ import { getId } from "../helpers";
 class TodoList {
   public todos = writable([]);
 
-  addTodo(task) {
+  addTodo(task: string) {
     const id = getId();
     const newTodo = { id, isDone: false, task };
     this.todos.update((todos) => [...todos, newTodo]);
   }
 
-  deleteTodo(targetId) {
+  deleteTodo(targetId: string) {
     this.todos.update((todos) => todos.filter(({ id }) => id !== targetId));
   }
 
@@ -19,7 +19,7 @@ class TodoList {
     return this.todos;
   }
 
-  toggleStatus(targetId) {
+  toggleStatus(targetId: string) {
     this.todos.update((todos) =>
       todos.map((todo) => {
         const { id, isDone, task } = todo;
@@ -31,7 +31,7 @@ class TodoList {
     );
   }
 
-  updateTask(newTask, targetId) {
+  updateTask(newTask: string, targetId: string) {
     this.todos.update((todos) =>
       todos.map((todo) => {
         const { id, isDone } = todo;
