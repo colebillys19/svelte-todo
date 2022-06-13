@@ -12,10 +12,22 @@ h1 {
 
 main {
   background-color: white;
-  border-left: 12px solid rgb(255, 64, 0);
-  border-right: 12px solid rgb(255, 64, 0);
   margin: 0 auto;
+  max-width: 1024px;
   min-height: 100vh;
   padding: 24px 0 48px;
-  width: 1024px;
+}
+
+@media (min-width: 768px) {
+  main {
+    border-left: 6px solid rgb(255, 64, 0);
+    border-right: 6px solid rgb(255, 64, 0);
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    border-left: 6px solid rgb(255, 64, 0);
+    border-right: 6px solid rgb(255, 64, 0);
+  }
 }
